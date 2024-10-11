@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             menuStrip1 = new MenuStrip();
-            statusStrip1 = new StatusStrip();
             MenuFile = new ToolStripMenuItem();
             MenuNew = new ToolStripMenuItem();
             MenuEdit = new ToolStripMenuItem();
             MenuDelete = new ToolStripMenuItem();
-            MenuExit = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
+            MenuExit = new ToolStripMenuItem();
+            statusStrip1 = new StatusStrip();
             Contacts = new DataGridView();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Contacts).BeginInit();
@@ -50,15 +50,6 @@
             menuStrip1.Size = new Size(800, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
-            // 
-            // statusStrip1
-            // 
-            statusStrip1.ImageScalingSize = new Size(20, 20);
-            statusStrip1.Location = new Point(0, 428);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(800, 22);
-            statusStrip1.TabIndex = 1;
-            statusStrip1.Text = "statusStrip1";
             // 
             // MenuFile
             // 
@@ -85,16 +76,26 @@
             MenuDelete.Size = new Size(224, 26);
             MenuDelete.Text = "Delete Contact";
             // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(221, 6);
+            // 
             // MenuExit
             // 
             MenuExit.Name = "MenuExit";
             MenuExit.Size = new Size(224, 26);
             MenuExit.Text = "Exit";
+            MenuExit.Click += MenuExit_Click;
             // 
-            // toolStripSeparator1
+            // statusStrip1
             // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(221, 6);
+            statusStrip1.ImageScalingSize = new Size(20, 20);
+            statusStrip1.Location = new Point(0, 428);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(800, 22);
+            statusStrip1.TabIndex = 1;
+            statusStrip1.Text = "statusStrip1";
             // 
             // Contacts
             // 

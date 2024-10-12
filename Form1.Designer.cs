@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
             MenuFile = new ToolStripMenuItem();
             MenuNew = new ToolStripMenuItem();
@@ -35,16 +36,25 @@
             MenuDelete = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             MenuExit = new ToolStripMenuItem();
+            MenuExecQuery = new ToolStripMenuItem();
+            MenuSelectQuery = new ToolStripMenuItem();
+            MenuUpdateQuery = new ToolStripMenuItem();
+            MenuInsertQuery = new ToolStripMenuItem();
+            MenuDeleteQuery = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             Contacts = new DataGridView();
+            cityBindingSource = new BindingSource(components);
+            uIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cityNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Contacts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cityBindingSource).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { MenuFile });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { MenuFile, MenuExecQuery });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 28);
@@ -61,32 +71,67 @@
             // MenuNew
             // 
             MenuNew.Name = "MenuNew";
-            MenuNew.Size = new Size(224, 26);
+            MenuNew.Size = new Size(191, 26);
             MenuNew.Text = "New Contact";
             // 
             // MenuEdit
             // 
             MenuEdit.Name = "MenuEdit";
-            MenuEdit.Size = new Size(224, 26);
+            MenuEdit.Size = new Size(191, 26);
             MenuEdit.Text = "Edit Contact";
             // 
             // MenuDelete
             // 
             MenuDelete.Name = "MenuDelete";
-            MenuDelete.Size = new Size(224, 26);
+            MenuDelete.Size = new Size(191, 26);
             MenuDelete.Text = "Delete Contact";
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(221, 6);
+            toolStripSeparator1.Size = new Size(188, 6);
             // 
             // MenuExit
             // 
             MenuExit.Name = "MenuExit";
-            MenuExit.Size = new Size(224, 26);
+            MenuExit.Size = new Size(191, 26);
             MenuExit.Text = "Exit";
             MenuExit.Click += MenuExit_Click;
+            // 
+            // MenuExecQuery
+            // 
+            MenuExecQuery.DropDownItems.AddRange(new ToolStripItem[] { MenuSelectQuery, MenuUpdateQuery, MenuInsertQuery, MenuDeleteQuery });
+            MenuExecQuery.Name = "MenuExecQuery";
+            MenuExecQuery.Size = new Size(117, 24);
+            MenuExecQuery.Text = "Execute Query";
+            // 
+            // MenuSelectQuery
+            // 
+            MenuSelectQuery.Name = "MenuSelectQuery";
+            MenuSelectQuery.Size = new Size(141, 26);
+            MenuSelectQuery.Text = "Select";
+            MenuSelectQuery.Click += MenuSelectQuery_Click;
+            // 
+            // MenuUpdateQuery
+            // 
+            MenuUpdateQuery.Name = "MenuUpdateQuery";
+            MenuUpdateQuery.Size = new Size(141, 26);
+            MenuUpdateQuery.Text = "Update";
+            MenuUpdateQuery.Click += MenuUpdateQuery_Click;
+            // 
+            // MenuInsertQuery
+            // 
+            MenuInsertQuery.Name = "MenuInsertQuery";
+            MenuInsertQuery.Size = new Size(141, 26);
+            MenuInsertQuery.Text = "Insert";
+            MenuInsertQuery.Click += MenuInsertQuery_Click;
+            // 
+            // MenuDeleteQuery
+            // 
+            MenuDeleteQuery.Name = "MenuDeleteQuery";
+            MenuDeleteQuery.Size = new Size(141, 26);
+            MenuDeleteQuery.Text = "Delete";
+            MenuDeleteQuery.Click += MenuDeleteQuery_Click;
             // 
             // statusStrip1
             // 
@@ -99,13 +144,42 @@
             // 
             // Contacts
             // 
+            Contacts.AllowUserToAddRows = false;
+            Contacts.AllowUserToDeleteRows = false;
+            Contacts.AutoGenerateColumns = false;
             Contacts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Contacts.Columns.AddRange(new DataGridViewColumn[] { uIDDataGridViewTextBoxColumn, cityNameDataGridViewTextBoxColumn });
+            Contacts.DataSource = cityBindingSource;
             Contacts.Dock = DockStyle.Fill;
             Contacts.Location = new Point(0, 28);
             Contacts.Name = "Contacts";
+            Contacts.ReadOnly = true;
             Contacts.RowHeadersWidth = 51;
             Contacts.Size = new Size(800, 400);
             Contacts.TabIndex = 2;
+            Contacts.CellContentClick += Contacts_CellContentClick;
+            // 
+            // cityBindingSource
+            // 
+            cityBindingSource.DataSource = typeof(Models.City);
+            // 
+            // uIDDataGridViewTextBoxColumn
+            // 
+            uIDDataGridViewTextBoxColumn.DataPropertyName = "UID";
+            uIDDataGridViewTextBoxColumn.HeaderText = "UID";
+            uIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            uIDDataGridViewTextBoxColumn.Name = "uIDDataGridViewTextBoxColumn";
+            uIDDataGridViewTextBoxColumn.ReadOnly = true;
+            uIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // cityNameDataGridViewTextBoxColumn
+            // 
+            cityNameDataGridViewTextBoxColumn.DataPropertyName = "CityName";
+            cityNameDataGridViewTextBoxColumn.HeaderText = "CityName";
+            cityNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            cityNameDataGridViewTextBoxColumn.Name = "cityNameDataGridViewTextBoxColumn";
+            cityNameDataGridViewTextBoxColumn.ReadOnly = true;
+            cityNameDataGridViewTextBoxColumn.Width = 125;
             // 
             // Form1
             // 
@@ -121,6 +195,7 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Contacts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cityBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -136,5 +211,13 @@
         private ToolStripMenuItem MenuExit;
         private StatusStrip statusStrip1;
         private DataGridView Contacts;
+        private ToolStripMenuItem MenuExecQuery;
+        private ToolStripMenuItem MenuSelectQuery;
+        private ToolStripMenuItem MenuInsertQuery;
+        private ToolStripMenuItem MenuDeleteQuery;
+        private ToolStripMenuItem MenuUpdateQuery;
+        private BindingSource cityBindingSource;
+        private DataGridViewTextBoxColumn uIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cityNameDataGridViewTextBoxColumn;
     }
 }

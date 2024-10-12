@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AddressBook
+namespace AddressBook.Models
 {
-    internal class Contact
+    public class Contact : ModelBase
     {
-        Contact()
+        public Contact()
         {
-            UID = 0;
             FirstName = "";
             LastName = "";
             Address = "";
@@ -18,8 +17,6 @@ namespace AddressBook
             PhoneNumber = "";
             Email = "";
         }
-
-        public ulong UID { get; set; }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }

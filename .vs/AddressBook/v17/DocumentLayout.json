@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|c:\\anri\\projects\\address book c# app\\addressbook\\datahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:datahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|c:\\anri\\projects\\address book c# app\\addressbook\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,8 +11,20 @@
       "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|c:\\anri\\projects\\address book c# app\\addressbook\\contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|c:\\anri\\projects\\address book c# app\\addressbook\\models\\contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:models\\contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|c:\\anri\\projects\\address book c# app\\addressbook\\models\\modelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:models\\modelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|c:\\anri\\projects\\address book c# app\\addressbook\\models\\city.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:models\\city.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|c:\\anri\\projects\\address book c# app\\addressbook\\datahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:datahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,62 +34,87 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Form1.cs [Design]",
-              "RelativeToolTip": "Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T21:11:16.307Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T15:07:28.161Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Contact.cs",
+              "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Models\\Contact.cs",
+              "RelativeDocumentMoniker": "Models\\Contact.cs",
+              "ToolTip": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Models\\Contact.cs",
+              "RelativeToolTip": "Models\\Contact.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:48:11.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "City.cs",
+              "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Models\\City.cs",
+              "RelativeDocumentMoniker": "Models\\City.cs",
+              "ToolTip": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Models\\City.cs",
+              "RelativeToolTip": "Models\\City.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:47:50.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ModelBase.cs",
+              "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Models\\ModelBase.cs",
+              "RelativeDocumentMoniker": "Models\\ModelBase.cs",
+              "ToolTip": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Models\\ModelBase.cs",
+              "RelativeToolTip": "Models\\ModelBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:15:16.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "DataHelper.cs",
               "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\DataHelper.cs",
               "RelativeDocumentMoniker": "DataHelper.cs",
               "ToolTip": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\DataHelper.cs",
               "RelativeToolTip": "DataHelper.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACMAAAAAAAAA",
+              "ViewState": "AQIAADEAAAAAAAAAAAAgwC4AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-11T18:31:15.707Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAgAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-11T16:29:07.882Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Contact.cs",
-              "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Contact.cs",
-              "RelativeDocumentMoniker": "Contact.cs",
-              "ToolTip": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Contact.cs",
-              "RelativeToolTip": "Contact.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAAwBoAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T16:04:52.832Z",
               "EditorCaption": ""
             }
           ]

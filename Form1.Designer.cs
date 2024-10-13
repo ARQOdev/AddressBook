@@ -43,9 +43,9 @@
             MenuDeleteQuery = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             Contacts = new DataGridView();
-            cityBindingSource = new BindingSource(components);
             uIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cityNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cityBindingSource = new BindingSource(components);
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Contacts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cityBindingSource).BeginInit();
@@ -73,6 +73,7 @@
             MenuNew.Name = "MenuNew";
             MenuNew.Size = new Size(191, 26);
             MenuNew.Text = "New Contact";
+            MenuNew.Click += MenuNew_Click;
             // 
             // MenuEdit
             // 
@@ -159,10 +160,6 @@
             Contacts.TabIndex = 2;
             Contacts.CellContentClick += Contacts_CellContentClick;
             // 
-            // cityBindingSource
-            // 
-            cityBindingSource.DataSource = typeof(Models.City);
-            // 
             // uIDDataGridViewTextBoxColumn
             // 
             uIDDataGridViewTextBoxColumn.DataPropertyName = "UID";
@@ -181,6 +178,10 @@
             cityNameDataGridViewTextBoxColumn.ReadOnly = true;
             cityNameDataGridViewTextBoxColumn.Width = 125;
             // 
+            // cityBindingSource
+            // 
+            cityBindingSource.DataSource = typeof(Models.City);
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -191,6 +192,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

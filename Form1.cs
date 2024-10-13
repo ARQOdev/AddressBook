@@ -1,4 +1,5 @@
-﻿using AddressBook.Models;
+﻿using AddressBook.Dialogs;
+using AddressBook.Models;
 using System.Data.SQLite;
 
 namespace AddressBook
@@ -59,6 +60,16 @@ namespace AddressBook
         private void Contacts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void MenuNew_Click(object sender, EventArgs e)
+        {
+            EditContact form = new EditContact();
+            DialogResult result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+
+            }
         }
     }
 }

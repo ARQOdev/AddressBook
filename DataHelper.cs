@@ -81,5 +81,36 @@ namespace AddressBook
             return list;
         }
 
+        public static ulong ExecuteInsert(string query, Dictionary<string, object> pars)
+        {
+            ulong new_id = 0;
+            using (SQLiteConnection connection = new SQLiteConnection(DataHelper.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SQLiteCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = query;
+                        foreach (KeyValuePair<string, object> pair in pars)
+                        {
+                            command.Parameters.AddWithValue(pair.Key, pair.Value);
+                        }
+                        command.ExecuteNonQuery();
+
+                        command.CommandText = "SELECT last_insert_rowid()";
+                        object ob = command.ExecuteScalar();
+                        new_id = Convert.ToUInt64(ob);
+                    }
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                }
+            }
+            return new_id;
+        }
+
     }
 }

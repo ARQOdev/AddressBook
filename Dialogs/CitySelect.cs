@@ -72,12 +72,50 @@ namespace AddressBook.Dialogs
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (CityGrid.SelectedCells.Count == 0)
+            {
+                MessageBox.Show("აირჩიეთ შესაცვლელი ქალაქი");
+                return;
+            }
+
+            DataGridViewCell cell = CityGrid.SelectedCells[0];
+            string selected_city = (string)cell.Value;
+            string txt = string.Format("გსურთ შეცვალოთ {0}?", selected_city);
+            DialogResult result = MessageBox.Show(txt, "ქალაქის რედაქტირება", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+                return;
+
+            string new_city_name = Interaction.InputBox("შეცვალეთ ქალაქის სახელი");
+            string query = "update City set CITY = @CITY where UID = @UID;";
+            Dictionary<string, object> pars = new Dictionary<string, object>();
+            pars["CITY"] = new_city_name;
+            pars["UID"] = 0;
+            DataHelper.ExecuteQuery(query, pars);
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (CityGrid.SelectedCells.Count == 0)
+            {
+                MessageBox.Show("აირჩიეთ წაშაშლელი ქალაქი");
+                return;
+            }
 
+            DataGridViewCell cell = CityGrid.SelectedCells[0];
+            string selected_city = (string)cell.Value;
+            string txt = string.Format("გსურთ წაშალოთ {0}?", selected_city);
+            DialogResult result = MessageBox.Show(txt, "ქალაქის ამოშლა", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.No)
+                return;
+
+            string query = "delete from City where CITY = @CITY;";
+            Dictionary<string, object> pars = new Dictionary<string, object>();
+            pars["CITY"] = selected_city;
+            DataHelper.ExecuteQuery(query, pars);
+
+            cityBindingSource.Remove(selected_city);
+            CityGrid.Refresh();
         }
     }
 }

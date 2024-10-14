@@ -78,9 +78,8 @@ namespace AddressBook.Dialogs
                 return;
             }
 
-            DataGridViewCell cell = CityGrid.SelectedCells[0];
-            string selected_city = (string)cell.Value;
-            string txt = string.Format("გსურთ შეცვალოთ {0}?", selected_city);
+            City selected_city = this.City;
+            string txt = string.Format("გსურთ შეცვალოთ {0}?", selected_city.CityName);
             DialogResult result = MessageBox.Show(txt, "ქალაქის რედაქტირება", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
                 return;
@@ -89,9 +88,11 @@ namespace AddressBook.Dialogs
             string query = "update City set CITY = @CITY where UID = @UID;";
             Dictionary<string, object> pars = new Dictionary<string, object>();
             pars["CITY"] = new_city_name;
-            pars["UID"] = 0;
+            pars["UID"] = selected_city.UID;
             DataHelper.ExecuteQuery(query, pars);
 
+            selected_city.CityName = new_city_name;
+            CityGrid.Refresh();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -102,16 +103,15 @@ namespace AddressBook.Dialogs
                 return;
             }
 
-            DataGridViewCell cell = CityGrid.SelectedCells[0];
-            string selected_city = (string)cell.Value;
-            string txt = string.Format("გსურთ წაშალოთ {0}?", selected_city);
+            City selected_city = this.City;
+            string txt = string.Format("გსურთ წაშალოთ {0}?", selected_city.CityName);
             DialogResult result = MessageBox.Show(txt, "ქალაქის ამოშლა", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.No)
                 return;
 
             string query = "delete from City where CITY = @CITY;";
             Dictionary<string, object> pars = new Dictionary<string, object>();
-            pars["CITY"] = selected_city;
+            pars["CITY"] = selected_city.CityName;
             DataHelper.ExecuteQuery(query, pars);
 
             cityBindingSource.Remove(selected_city);

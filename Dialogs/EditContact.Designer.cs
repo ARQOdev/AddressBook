@@ -43,8 +43,6 @@
             lblDescription = new Label();
             txtDescription = new TextBox();
             btnSelectCity = new Button();
-            btnSelectPhone = new Button();
-            btnSelectMail = new Button();
             btnSave = new Button();
             btnCancel = new Button();
             SuspendLayout();
@@ -81,7 +79,6 @@
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(195, 27);
             txtLastName.TabIndex = 2;
-            txtLastName.TextChanged += txtLastName_TextChanged;
             // 
             // lblCity
             // 
@@ -129,7 +126,6 @@
             // 
             txtPhone.Location = new Point(114, 144);
             txtPhone.Name = "txtPhone";
-            txtPhone.ReadOnly = true;
             txtPhone.Size = new Size(195, 27);
             txtPhone.TabIndex = 8;
             txtPhone.TextChanged += txtPhone_TextChanged;
@@ -147,7 +143,6 @@
             // 
             txtMail.Location = new Point(114, 177);
             txtMail.Name = "txtMail";
-            txtMail.ReadOnly = true;
             txtMail.Size = new Size(195, 27);
             txtMail.TabIndex = 10;
             // 
@@ -178,24 +173,6 @@
             btnSelectCity.UseVisualStyleBackColor = true;
             btnSelectCity.Click += btnSelectCity_Click;
             // 
-            // btnSelectPhone
-            // 
-            btnSelectPhone.Image = Properties.Resources.search_24x24;
-            btnSelectPhone.Location = new Point(315, 144);
-            btnSelectPhone.Name = "btnSelectPhone";
-            btnSelectPhone.Size = new Size(27, 27);
-            btnSelectPhone.TabIndex = 15;
-            btnSelectPhone.UseVisualStyleBackColor = true;
-            // 
-            // btnSelectMail
-            // 
-            btnSelectMail.Image = Properties.Resources.search_24x24;
-            btnSelectMail.Location = new Point(315, 177);
-            btnSelectMail.Name = "btnSelectMail";
-            btnSelectMail.Size = new Size(27, 27);
-            btnSelectMail.TabIndex = 16;
-            btnSelectMail.UseVisualStyleBackColor = true;
-            // 
             // btnSave
             // 
             btnSave.Location = new Point(356, 10);
@@ -225,8 +202,6 @@
             ClientSize = new Size(480, 280);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
-            Controls.Add(btnSelectMail);
-            Controls.Add(btnSelectPhone);
             Controls.Add(btnSelectCity);
             Controls.Add(lblDescription);
             Controls.Add(txtDescription);
@@ -269,8 +244,6 @@
         private Label lblDescription;
         private TextBox txtDescription;
         private Button btnSelectCity;
-        private Button btnSelectPhone;
-        private Button btnSelectMail;
         private Button btnSave;
         private Button btnCancel;
     }

@@ -100,7 +100,7 @@
             CityGrid.ReadOnly = true;
             CityGrid.RowHeadersWidth = 51;
             CityGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            CityGrid.Size = new Size(394, 200);
+            CityGrid.Size = new Size(394, 160);
             CityGrid.TabIndex = 1;
             // 
             // cityNameDataGridViewTextBoxColumn
@@ -154,8 +154,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnCancel;
             ClientSize = new Size(394, 227);
-            Controls.Add(panel1);
             Controls.Add(CityGrid);
+            Controls.Add(panel1);
             Controls.Add(toolStrip1);
             MaximizeBox = false;
             MinimizeBox = false;

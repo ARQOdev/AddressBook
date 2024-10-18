@@ -1,6 +1,6 @@
 ﻿namespace AddressBook
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -43,12 +43,18 @@
             MenuDeleteQuery = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             Contacts = new DataGridView();
-            uIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            cityNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cityBindingSource = new BindingSource(components);
+            contactBindingSource = new BindingSource(components);
+            colFirstName = new DataGridViewTextBoxColumn();
+            colLastName = new DataGridViewTextBoxColumn();
+            colPhoneNumber = new DataGridViewTextBoxColumn();
+            colMail = new DataGridViewTextBoxColumn();
+            colCity = new DataGridViewTextBoxColumn();
+            colAddress = new DataGridViewTextBoxColumn();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Contacts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cityBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)contactBindingSource).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -57,7 +63,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { MenuFile, MenuExecQuery });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 28);
+            menuStrip1.Size = new Size(803, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -139,7 +145,7 @@
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Location = new Point(0, 428);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(800, 22);
+            statusStrip1.Size = new Size(803, 22);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -149,44 +155,84 @@
             Contacts.AllowUserToDeleteRows = false;
             Contacts.AutoGenerateColumns = false;
             Contacts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Contacts.Columns.AddRange(new DataGridViewColumn[] { uIDDataGridViewTextBoxColumn, cityNameDataGridViewTextBoxColumn });
-            Contacts.DataSource = cityBindingSource;
+            Contacts.Columns.AddRange(new DataGridViewColumn[] { colFirstName, colLastName, colPhoneNumber, colMail, colCity, colAddress });
+            Contacts.DataSource = contactBindingSource;
             Contacts.Dock = DockStyle.Fill;
             Contacts.Location = new Point(0, 28);
             Contacts.Name = "Contacts";
             Contacts.ReadOnly = true;
             Contacts.RowHeadersWidth = 51;
-            Contacts.Size = new Size(800, 400);
+            Contacts.Size = new Size(803, 400);
             Contacts.TabIndex = 2;
             Contacts.CellContentClick += Contacts_CellContentClick;
-            // 
-            // uIDDataGridViewTextBoxColumn
-            // 
-            uIDDataGridViewTextBoxColumn.DataPropertyName = "UID";
-            uIDDataGridViewTextBoxColumn.HeaderText = "UID";
-            uIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            uIDDataGridViewTextBoxColumn.Name = "uIDDataGridViewTextBoxColumn";
-            uIDDataGridViewTextBoxColumn.ReadOnly = true;
-            uIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // cityNameDataGridViewTextBoxColumn
-            // 
-            cityNameDataGridViewTextBoxColumn.DataPropertyName = "CityName";
-            cityNameDataGridViewTextBoxColumn.HeaderText = "CityName";
-            cityNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            cityNameDataGridViewTextBoxColumn.Name = "cityNameDataGridViewTextBoxColumn";
-            cityNameDataGridViewTextBoxColumn.ReadOnly = true;
-            cityNameDataGridViewTextBoxColumn.Width = 125;
             // 
             // cityBindingSource
             // 
             cityBindingSource.DataSource = typeof(Models.City);
             // 
+            // contactBindingSource
+            // 
+            contactBindingSource.DataSource = typeof(Models.Contact);
+            // 
+            // colFirstName
+            // 
+            colFirstName.DataPropertyName = "FirstName";
+            colFirstName.HeaderText = "სახელი";
+            colFirstName.MinimumWidth = 6;
+            colFirstName.Name = "colFirstName";
+            colFirstName.ReadOnly = true;
+            colFirstName.Width = 125;
+            // 
+            // colLastName
+            // 
+            colLastName.DataPropertyName = "LastName";
+            colLastName.HeaderText = "გვარი";
+            colLastName.MinimumWidth = 6;
+            colLastName.Name = "colLastName";
+            colLastName.ReadOnly = true;
+            colLastName.Width = 125;
+            // 
+            // colPhoneNumber
+            // 
+            colPhoneNumber.DataPropertyName = "PhoneNumber";
+            colPhoneNumber.HeaderText = "ტელეფონი";
+            colPhoneNumber.MinimumWidth = 6;
+            colPhoneNumber.Name = "colPhoneNumber";
+            colPhoneNumber.ReadOnly = true;
+            colPhoneNumber.Width = 125;
+            // 
+            // colMail
+            // 
+            colMail.DataPropertyName = "Mail";
+            colMail.HeaderText = "ელ-ფოსტა";
+            colMail.MinimumWidth = 6;
+            colMail.Name = "colMail";
+            colMail.ReadOnly = true;
+            colMail.Width = 125;
+            // 
+            // colCity
+            // 
+            colCity.DataPropertyName = "City";
+            colCity.HeaderText = "ქალაქი";
+            colCity.MinimumWidth = 6;
+            colCity.Name = "colCity";
+            colCity.ReadOnly = true;
+            colCity.Width = 125;
+            // 
+            // colAddress
+            // 
+            colAddress.DataPropertyName = "Address";
+            colAddress.HeaderText = "მისამართი";
+            colAddress.MinimumWidth = 6;
+            colAddress.Name = "colAddress";
+            colAddress.ReadOnly = true;
+            colAddress.Width = 125;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(803, 450);
             Controls.Add(Contacts);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
@@ -198,6 +244,7 @@
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Contacts).EndInit();
             ((System.ComponentModel.ISupportInitialize)cityBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)contactBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -219,7 +266,12 @@
         private ToolStripMenuItem MenuDeleteQuery;
         private ToolStripMenuItem MenuUpdateQuery;
         private BindingSource cityBindingSource;
-        private DataGridViewTextBoxColumn uIDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn cityNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn colFirstName;
+        private DataGridViewTextBoxColumn colLastName;
+        private DataGridViewTextBoxColumn colPhoneNumber;
+        private DataGridViewTextBoxColumn colMail;
+        private DataGridViewTextBoxColumn colCity;
+        private DataGridViewTextBoxColumn colAddress;
+        private BindingSource contactBindingSource;
     }
 }

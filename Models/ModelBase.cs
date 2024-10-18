@@ -85,10 +85,7 @@ namespace AddressBook.Models
                 contact.PhoneNumber = reader["PHONE_NUMBER"].ToString()!;
                 contact.Mail = reader["EMAIL"].ToString()!;
                 contact.Description = reader["DESCRIPTION"].ToString()!;
-                contact.AddressUID = Convert.ToUInt64(reader["ADDRESS_UID"]);
                 contact.CityUID = Convert.ToUInt64(reader["CITY_UID"]);
-                contact.PhoneUID = Convert.ToUInt64(reader["PHONE_UID"]);
-                contact.MailUID = Convert.ToUInt64(reader["MAIL_UID"]);
             }
             return list;
         }

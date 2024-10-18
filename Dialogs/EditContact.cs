@@ -37,17 +37,12 @@ namespace AddressBook.Dialogs
             bool can_save = true;
             if (string.IsNullOrEmpty(txtFirstName.Text))
             {
-                txtFirstName.ForeColor = Color.Red;
-                can_save = false;
-            }
-            if (string.IsNullOrEmpty(txtLastName.Text))
-            {
-                txtLastName.ForeColor = Color.Red;
+                txtFirstName.BackColor = Color.Red;
                 can_save = false;
             }
             if (string.IsNullOrEmpty(txtPhone.Text))
             {
-                txtPhone.ForeColor = Color.Red;
+                txtPhone.BackColor = Color.Red;
                 can_save = false;
             }
 
@@ -55,6 +50,21 @@ namespace AddressBook.Dialogs
             {
                 return;
             }
+
+            string query = "insert into Person (FIRST_NAME, LAST_NAME, DESCRIPTION, PHONE, MAIL, ADDRESS, CITY_UID) " +
+                "values(@FIRST_NAME, @LAST_NAME, @DESCRIPTION, @PHONE, @MAIL, @ADDRESS, @CITY_UID);";
+            Dictionary<string, object> pars = new Dictionary<string, object>();
+
+            pars["FIRST_NAME"] = string.IsNullOrEmpty(txtFirstName.Text) ? "" : txtFirstName.Text.ToString();
+            pars["LAST_NAME"] = string.IsNullOrEmpty(txtLastName.Text) ? "" : txtLastName.Text.ToString();
+            pars["DESCRIPTION"] = string.IsNullOrEmpty(txtDescription.Text) ? "" : txtDescription.Text.ToString();
+            pars["PHONE"] = string.IsNullOrEmpty(txtPhone.Text) ? "" : txtPhone.Text.ToString();
+            pars["MAIL"] = string.IsNullOrEmpty(txtMail.Text) ? "" : txtMail.Text.ToString();
+            pars["ADDRESS"] = string.IsNullOrEmpty(txtAddress.Text) ? "" : txtAddress.Text.ToString();
+            pars["CITY_UID"] = string.IsNullOrEmpty(txtCity.Text) ? 0 : Contact.CityUID; 
+
+            ulong id = DataHelper.ExecuteInsert(query, pars);
+            System.Diagnostics.Debug.WriteLine(id);
 
             DialogResult = DialogResult.OK;
             Close();
@@ -68,17 +78,11 @@ namespace AddressBook.Dialogs
 
         private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
-            txtFirstName.ForeColor = Color.White;
+            txtFirstName.BackColor = Color.White;
         }
-
-        private void txtLastName_TextChanged(object sender, EventArgs e)
-        {
-            txtLastName.ForeColor = Color.White;
-        }
-
         private void txtPhone_TextChanged(object sender, EventArgs e)
         {
-            txtPhone.ForeColor = Color.White;
+            txtPhone.BackColor = Color.White;
         }
 
         private void btnSelectCity_Click(object sender, EventArgs e)

@@ -80,7 +80,7 @@ namespace AddressBook
             }
             return list;
         }
-
+        
         public static ulong ExecuteInsert(string query, Dictionary<string, object> pars)
         {
             ulong new_id = 0;

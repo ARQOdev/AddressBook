@@ -19,8 +19,5 @@ namespace AddressBook.Models
         }
 
         public string CityName { get; set; }
-
-
-
     }
 }

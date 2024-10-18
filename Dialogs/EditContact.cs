@@ -14,7 +14,7 @@ namespace AddressBook.Dialogs
     public partial class EditContact : Form
     {
 
-        private Contact Contact { get; set; }
+        public Contact Contact { get; private set; }
 
         public EditContact()
         {
@@ -55,16 +55,31 @@ namespace AddressBook.Dialogs
                 "values(@FIRST_NAME, @LAST_NAME, @DESCRIPTION, @PHONE, @MAIL, @ADDRESS, @CITY_UID);";
             Dictionary<string, object> pars = new Dictionary<string, object>();
 
-            pars["FIRST_NAME"] = string.IsNullOrEmpty(txtFirstName.Text) ? "" : txtFirstName.Text.ToString();
-            pars["LAST_NAME"] = string.IsNullOrEmpty(txtLastName.Text) ? "" : txtLastName.Text.ToString();
-            pars["DESCRIPTION"] = string.IsNullOrEmpty(txtDescription.Text) ? "" : txtDescription.Text.ToString();
-            pars["PHONE"] = string.IsNullOrEmpty(txtPhone.Text) ? "" : txtPhone.Text.ToString();
-            pars["MAIL"] = string.IsNullOrEmpty(txtMail.Text) ? "" : txtMail.Text.ToString();
-            pars["ADDRESS"] = string.IsNullOrEmpty(txtAddress.Text) ? "" : txtAddress.Text.ToString();
+            pars["FIRST_NAME"] = string.IsNullOrEmpty(txtFirstName.Text) ? "" : txtFirstName.Text;
+            pars["LAST_NAME"] = string.IsNullOrEmpty(txtLastName.Text) ? "" : txtLastName.Text;
+            pars["DESCRIPTION"] = string.IsNullOrEmpty(txtDescription.Text) ? "" : txtDescription.Text;
+            pars["PHONE"] = string.IsNullOrEmpty(txtPhone.Text) ? "" : txtPhone.Text;
+            pars["MAIL"] = string.IsNullOrEmpty(txtMail.Text) ? "" : txtMail.Text;
+            pars["ADDRESS"] = string.IsNullOrEmpty(txtAddress.Text) ? "" : txtAddress.Text;
             pars["CITY_UID"] = string.IsNullOrEmpty(txtCity.Text) ? 0 : Contact.CityUID; 
 
             ulong id = DataHelper.ExecuteInsert(query, pars);
-            System.Diagnostics.Debug.WriteLine(id);
+            
+            if (id > 0)
+            {
+                this.Contact.UID = id;
+                this.Contact.FirstName = string.IsNullOrEmpty(txtFirstName.Text) ? "" : txtFirstName.Text;
+                this.Contact.LastName = string.IsNullOrEmpty(txtLastName.Text) ? "" : txtLastName.Text;
+                this.Contact.Description = string.IsNullOrEmpty(txtDescription.Text) ? "" : txtDescription.Text;
+                this.Contact.PhoneNumber = string.IsNullOrEmpty(txtPhone.Text) ? "" : txtPhone.Text;
+                this.Contact.Mail = string.IsNullOrEmpty(txtMail.Text) ? "" : txtMail.Text;
+                this.Contact.Address = string.IsNullOrEmpty(txtAddress.Text) ? "" : txtAddress.Text;
+            }
+            else
+            {
+                MessageBox.Show("ვერ მოხერხდა კონტაქტის დამატება!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             DialogResult = DialogResult.OK;
             Close();

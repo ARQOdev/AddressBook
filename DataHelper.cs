@@ -10,7 +10,7 @@ namespace AddressBook
 {
     internal static class DataHelper
     {
-        public static string ConnectionString { get; set; }
+        public static string ConnectionString { get; set; } = "";
 
         public delegate List<ModelBase> SelectDelegate(SQLiteDataReader reader);
 
@@ -44,7 +44,7 @@ namespace AddressBook
 
         public static List<ModelBase> ExecuteSelect(SelectDelegate func, string query, Dictionary<string, object>? pars = null)
         {
-            List<ModelBase> list = null;
+            List<ModelBase> list = new List<ModelBase>();
             using (SQLiteConnection connection = new SQLiteConnection(DataHelper.ConnectionString))
             {
                 try

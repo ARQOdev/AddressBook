@@ -78,8 +78,8 @@ namespace AddressBook.Dialogs
                 return;
             }
 
-            City selected_city = this.City;
-            string txt = string.Format("გსურთ შეცვალოთ {0}?", selected_city.CityName);
+            City? selected_city = this.City;
+            string txt = string.Format("გსურთ შეცვალოთ {0}?", selected_city != null ? selected_city.CityName : "");
             DialogResult result = MessageBox.Show(txt, "ქალაქის რედაქტირება", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
                 return;
@@ -88,7 +88,7 @@ namespace AddressBook.Dialogs
             string query = "update City set CITY = @CITY where UID = @UID;";
             Dictionary<string, object> pars = new Dictionary<string, object>();
             pars["CITY"] = new_city_name;
-            pars["UID"] = selected_city.UID;
+            pars["UID"] = selected_city != null ? selected_city.UID : 0;
             DataHelper.ExecuteQuery(query, pars);
 
             selected_city.CityName = new_city_name;
@@ -103,8 +103,8 @@ namespace AddressBook.Dialogs
                 return;
             }
 
-            City selected_city = this.City;
-            string txt = string.Format("გსურთ წაშალოთ {0}?", selected_city.CityName);
+            City? selected_city = this.City;
+            string txt = string.Format("გსურთ წაშალოთ {0}?", selected_city != null ? selected_city.CityName : "");
             DialogResult result = MessageBox.Show(txt, "ქალაქის ამოშლა", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.No)
                 return;

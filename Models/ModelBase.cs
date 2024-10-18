@@ -82,10 +82,12 @@ namespace AddressBook.Models
                 contact.LastName = reader["LAST_NAME"].ToString()!;
                 contact.Address = reader["ADDRESS"].ToString()!;
                 contact.City = reader["CITY"].ToString()!;
-                contact.PhoneNumber = reader["PHONE_NUMBER"].ToString()!;
-                contact.Mail = reader["EMAIL"].ToString()!;
+                contact.PhoneNumber = reader["PHONE"].ToString()!;
+                contact.Mail = reader["MAIL"].ToString()!;
                 contact.Description = reader["DESCRIPTION"].ToString()!;
                 contact.CityUID = Convert.ToUInt64(reader["CITY_UID"]);
+
+                list.Add(contact);
             }
             return list;
         }

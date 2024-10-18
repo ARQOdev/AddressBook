@@ -217,11 +217,12 @@
             Controls.Add(txtLastName);
             Controls.Add(lblFirstName);
             Controls.Add(txtFirstName);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "EditContact";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "EditContact";
+            Text = "კონტაქტის დამატება";
             Load += EditContact_Load;
             ResumeLayout(false);
             PerformLayout();

@@ -9,7 +9,6 @@ namespace AddressBook
         public MainForm()
         {
             InitializeComponent();
-
             DataHelper.ConnectionString = @"Data Source=AddressBook.db;Version=3;";
         }
 
@@ -27,6 +26,35 @@ namespace AddressBook
                 contactBindingSource.Add(form.Contact);
                 ContacsGrid.Refresh();
             }
+        }
+
+        private void MenuEdit_Click(object sender, EventArgs e)
+        {
+            Contact contact = (Contact)contactBindingSource.Current;
+            EditContact form = new EditContact(contact);
+            DialogResult result = form.ShowDialog();
+
+            if (result != DialogResult.OK)
+                return;
+
+            ContacsGrid.Refresh();
+        }
+
+        private void MenuDelete_Click(object sender, EventArgs e)
+        {
+            Contact c = (Contact)contactBindingSource.Current;
+            DialogResult result = MessageBox.Show(string.Format("გსურთ წაშალოთ {0} {1} კონტაქტებიდან?", c.FirstName, c.LastName), "კონტაქტის ამოშლა", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+                return;
+
+            string query = "DELETE FROM Person WHERE UID = @UID";
+            Dictionary<string, object> pars = new Dictionary<string, object>();
+            pars["UID"] = c.UID;
+
+            DataHelper.ExecuteQuery(query, pars);
+            contactBindingSource.RemoveCurrent();
+            ContacsGrid.Refresh();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

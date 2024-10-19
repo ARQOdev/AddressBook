@@ -39,6 +39,8 @@
             statusStrip1 = new StatusStrip();
             contactBindingSource = new BindingSource(components);
             ContacsGrid = new DataGridView();
+            uIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cityUIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -46,8 +48,6 @@
             cityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            cityUIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            uIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)contactBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ContacsGrid).BeginInit();
@@ -59,7 +59,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { MenuFile });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(803, 28);
+            menuStrip1.Size = new Size(802, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -73,31 +73,33 @@
             // MenuNew
             // 
             MenuNew.Name = "MenuNew";
-            MenuNew.Size = new Size(191, 26);
+            MenuNew.Size = new Size(224, 26);
             MenuNew.Text = "New Contact";
             MenuNew.Click += MenuNew_Click;
             // 
             // MenuEdit
             // 
             MenuEdit.Name = "MenuEdit";
-            MenuEdit.Size = new Size(191, 26);
+            MenuEdit.Size = new Size(224, 26);
             MenuEdit.Text = "Edit Contact";
+            MenuEdit.Click += MenuEdit_Click;
             // 
             // MenuDelete
             // 
             MenuDelete.Name = "MenuDelete";
-            MenuDelete.Size = new Size(191, 26);
+            MenuDelete.Size = new Size(224, 26);
             MenuDelete.Text = "Delete Contact";
+            MenuDelete.Click += MenuDelete_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(188, 6);
+            toolStripSeparator1.Size = new Size(221, 6);
             // 
             // MenuExit
             // 
             MenuExit.Name = "MenuExit";
-            MenuExit.Size = new Size(191, 26);
+            MenuExit.Size = new Size(224, 26);
             MenuExit.Text = "Exit";
             MenuExit.Click += MenuExit_Click;
             // 
@@ -106,7 +108,7 @@
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Location = new Point(0, 428);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(803, 22);
+            statusStrip1.Size = new Size(802, 22);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -120,16 +122,37 @@
             ContacsGrid.AllowUserToDeleteRows = false;
             ContacsGrid.AutoGenerateColumns = false;
             ContacsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ContacsGrid.Columns.AddRange(new DataGridViewColumn[] { firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, mailDataGridViewTextBoxColumn, cityDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, descriptionDataGridViewTextBoxColumn, cityUIDDataGridViewTextBoxColumn, uIDDataGridViewTextBoxColumn });
+            ContacsGrid.Columns.AddRange(new DataGridViewColumn[] { uIDDataGridViewTextBoxColumn, cityUIDDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, mailDataGridViewTextBoxColumn, cityDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, descriptionDataGridViewTextBoxColumn });
             ContacsGrid.DataSource = contactBindingSource;
             ContacsGrid.Dock = DockStyle.Fill;
             ContacsGrid.Location = new Point(0, 28);
+            ContacsGrid.MultiSelect = false;
             ContacsGrid.Name = "ContacsGrid";
             ContacsGrid.ReadOnly = true;
             ContacsGrid.RowHeadersWidth = 51;
             ContacsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ContacsGrid.Size = new Size(803, 400);
+            ContacsGrid.Size = new Size(802, 400);
             ContacsGrid.TabIndex = 2;
+            // 
+            // uIDDataGridViewTextBoxColumn
+            // 
+            uIDDataGridViewTextBoxColumn.DataPropertyName = "UID";
+            uIDDataGridViewTextBoxColumn.HeaderText = "UID";
+            uIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            uIDDataGridViewTextBoxColumn.Name = "uIDDataGridViewTextBoxColumn";
+            uIDDataGridViewTextBoxColumn.ReadOnly = true;
+            uIDDataGridViewTextBoxColumn.Visible = false;
+            uIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // cityUIDDataGridViewTextBoxColumn
+            // 
+            cityUIDDataGridViewTextBoxColumn.DataPropertyName = "CityUID";
+            cityUIDDataGridViewTextBoxColumn.HeaderText = "CityUID";
+            cityUIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            cityUIDDataGridViewTextBoxColumn.Name = "cityUIDDataGridViewTextBoxColumn";
+            cityUIDDataGridViewTextBoxColumn.ReadOnly = true;
+            cityUIDDataGridViewTextBoxColumn.Visible = false;
+            cityUIDDataGridViewTextBoxColumn.Width = 125;
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
@@ -194,31 +217,11 @@
             descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             descriptionDataGridViewTextBoxColumn.Width = 125;
             // 
-            // cityUIDDataGridViewTextBoxColumn
-            // 
-            cityUIDDataGridViewTextBoxColumn.DataPropertyName = "CityUID";
-            cityUIDDataGridViewTextBoxColumn.HeaderText = "CityUID";
-            cityUIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            cityUIDDataGridViewTextBoxColumn.Name = "cityUIDDataGridViewTextBoxColumn";
-            cityUIDDataGridViewTextBoxColumn.ReadOnly = true;
-            cityUIDDataGridViewTextBoxColumn.Visible = false;
-            cityUIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // uIDDataGridViewTextBoxColumn
-            // 
-            uIDDataGridViewTextBoxColumn.DataPropertyName = "UID";
-            uIDDataGridViewTextBoxColumn.HeaderText = "UID";
-            uIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            uIDDataGridViewTextBoxColumn.Name = "uIDDataGridViewTextBoxColumn";
-            uIDDataGridViewTextBoxColumn.ReadOnly = true;
-            uIDDataGridViewTextBoxColumn.Visible = false;
-            uIDDataGridViewTextBoxColumn.Width = 125;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(803, 450);
+            ClientSize = new Size(802, 450);
             Controls.Add(ContacsGrid);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
@@ -247,6 +250,8 @@
         private StatusStrip statusStrip1;
         private BindingSource contactBindingSource;
         private DataGridView ContacsGrid;
+        private DataGridViewTextBoxColumn uIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cityUIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
@@ -254,7 +259,5 @@
         private DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn cityUIDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn uIDDataGridViewTextBoxColumn;
     }
 }

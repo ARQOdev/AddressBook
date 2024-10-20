@@ -98,10 +98,12 @@
             CityGrid.MultiSelect = false;
             CityGrid.Name = "CityGrid";
             CityGrid.ReadOnly = true;
+            CityGrid.RowHeadersVisible = false;
             CityGrid.RowHeadersWidth = 51;
             CityGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             CityGrid.Size = new Size(394, 160);
             CityGrid.TabIndex = 1;
+            CityGrid.DataBindingComplete += CityGrid_DataBindingComplete;
             // 
             // cityNameDataGridViewTextBoxColumn
             // 
@@ -129,6 +131,7 @@
             // 
             // btnSelect
             // 
+            btnSelect.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSelect.Location = new Point(190, 5);
             btnSelect.Name = "btnSelect";
             btnSelect.Size = new Size(94, 29);
@@ -139,6 +142,7 @@
             // 
             // btnCancel
             // 
+            btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancel.Location = new Point(294, 5);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(94, 29);

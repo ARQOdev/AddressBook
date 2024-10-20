@@ -1,6 +1,7 @@
 ﻿using AddressBook.Models;
 using Microsoft.VisualBasic;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,19 +16,23 @@ namespace AddressBook.Dialogs
     public partial class CitySelect : Form
     {
         public City? City { get; private set; }
-
-        public CitySelect()
+        private int idx = 0;
+        public CitySelect(ulong city_uid = 0)
         {
             this.City = null;
 
             InitializeComponent();
 
-            string query = "select * from CITY;";
+            string query = "select * from City order by CITY;";
             List<ModelBase> list = DataHelper.ExecuteSelect(ModelBase.GetCityList, query);
             List<City> ctList = new List<City>();
+            int i = 0;
             foreach (ModelBase mb in list)
             {
                 ctList.Add((City)mb);
+                if (city_uid == mb.UID)
+                    idx = i;
+                i++;
             }
             cityBindingSource.DataSource = ctList;
             CityGrid.Refresh();
@@ -55,7 +60,7 @@ namespace AddressBook.Dialogs
             string city_name = Interaction.InputBox("მიუთითეთ ქალაქის სახელი!");
             if (string.IsNullOrEmpty(city_name))
                 return;
-            
+
             string query = "insert into City (CITY) values (@CITY);";
             Dictionary<string, object> pars = new Dictionary<string, object>();
             pars["CITY"] = city_name;
@@ -116,6 +121,14 @@ namespace AddressBook.Dialogs
 
             cityBindingSource.Remove(selected_city);
             CityGrid.Refresh();
+        }
+
+        private void CityGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (idx > 0)
+            {
+                CityGrid.CurrentCell = CityGrid[0, idx];
+            }
         }
     }
 }

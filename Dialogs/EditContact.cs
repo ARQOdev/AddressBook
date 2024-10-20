@@ -15,6 +15,7 @@ namespace AddressBook.Dialogs
     {
 
         public Contact Contact { get; private set; }
+        private City SelectedCity { get; set; }
 
         public EditContact()
         {
@@ -73,16 +74,18 @@ namespace AddressBook.Dialogs
                 pars["PHONE"] = string.IsNullOrEmpty(txtPhone.Text) ? "" : txtPhone.Text;
                 pars["MAIL"] = string.IsNullOrEmpty(txtMail.Text) ? "" : txtMail.Text;
                 pars["ADDRESS"] = string.IsNullOrEmpty(txtAddress.Text) ? "" : txtAddress.Text;
-                pars["CITY_UID"] = string.IsNullOrEmpty(txtCity.Text) ? 0 : Contact.CityUID;
+                pars["CITY_UID"] = string.IsNullOrEmpty(txtCity.Text) ? 0 : SelectedCity.UID;
 
                 ulong id = DataHelper.ExecuteInsert(query, pars);
 
                 if (id > 0)
                 {
                     this.Contact.UID = id;
+                    this.Contact.CityUID = SelectedCity == null ? 0 : SelectedCity.UID;
+                    this.Contact.City = SelectedCity == null ? "" : SelectedCity.CityName;
                     this.Contact.FirstName = string.IsNullOrEmpty(txtFirstName.Text) ? "" : txtFirstName.Text;
                     this.Contact.LastName = string.IsNullOrEmpty(txtLastName.Text) ? "" : txtLastName.Text;
-                    this.Contact.City = string.IsNullOrEmpty(txtCity.Text) ? "" : txtCity.Text;
+                    //this.Contact.City = string.IsNullOrEmpty(txtCity.Text) ? "" : txtCity.Text;
                     this.Contact.Address = string.IsNullOrEmpty(txtAddress.Text) ? "" : txtAddress.Text;
                     this.Contact.PhoneNumber = string.IsNullOrEmpty(txtPhone.Text) ? "" : txtPhone.Text;
                     this.Contact.Mail = string.IsNullOrEmpty(txtMail.Text) ? "" : txtMail.Text;
@@ -114,14 +117,15 @@ namespace AddressBook.Dialogs
                 pars["PHONE"] = string.IsNullOrEmpty(txtPhone.Text) ? "" : txtPhone.Text;
                 pars["MAIL"] = string.IsNullOrEmpty(txtMail.Text) ? "" : txtMail.Text;
                 pars["ADDRESS"] = string.IsNullOrEmpty(txtAddress.Text) ? "" : txtAddress.Text;
-                pars["CITY_UID"] = string.IsNullOrEmpty(txtCity.Text) ? 0 : Contact.CityUID;
+                pars["CITY_UID"] = string.IsNullOrEmpty(txtCity.Text) ? 0 : SelectedCity.UID;
                 pars["UID"] = Contact.UID;
 
                 DataHelper.ExecuteQuery(query, pars);
 
+                this.Contact.CityUID = SelectedCity == null ? 0 : SelectedCity.UID;
+                this.Contact.City = SelectedCity == null ? "" : SelectedCity.CityName;
                 this.Contact.FirstName = string.IsNullOrEmpty(txtFirstName.Text) ? "" : txtFirstName.Text;
                 this.Contact.LastName = string.IsNullOrEmpty(txtLastName.Text) ? "" : txtLastName.Text;
-                this.Contact.City = string.IsNullOrEmpty(txtCity.Text) ? "" : txtCity.Text;
                 this.Contact.Address = string.IsNullOrEmpty(txtAddress.Text) ? "" : txtAddress.Text;
                 this.Contact.PhoneNumber = string.IsNullOrEmpty(txtPhone.Text) ? "" : txtPhone.Text;
                 this.Contact.Mail = string.IsNullOrEmpty(txtMail.Text) ? "" : txtMail.Text;
@@ -148,16 +152,15 @@ namespace AddressBook.Dialogs
 
         private void btnSelectCity_Click(object sender, EventArgs e)
         {
-            CitySelect form = new CitySelect();
+            CitySelect form = new CitySelect(Contact.CityUID);
             DialogResult result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
                 City? city = form.City;
                 if (city != null)
                 {
-                    Contact.CityUID = city.UID;
-                    Contact.City = city.CityName;
-                    txtCity.Text = Contact.City;
+                    this.SelectedCity = city;
+                    txtCity.Text = SelectedCity.CityName;
                 }
             }
         }

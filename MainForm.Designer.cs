@@ -48,9 +48,14 @@
             cityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            toolStrip1 = new ToolStrip();
+            toolStirpBtnAdd = new ToolStripButton();
+            toolStirpBtnEdit = new ToolStripButton();
+            toolStirpBtnDelete = new ToolStripButton();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)contactBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ContacsGrid).BeginInit();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -125,13 +130,13 @@
             ContacsGrid.Columns.AddRange(new DataGridViewColumn[] { uIDDataGridViewTextBoxColumn, cityUIDDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, mailDataGridViewTextBoxColumn, cityDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, descriptionDataGridViewTextBoxColumn });
             ContacsGrid.DataSource = contactBindingSource;
             ContacsGrid.Dock = DockStyle.Fill;
-            ContacsGrid.Location = new Point(0, 28);
+            ContacsGrid.Location = new Point(0, 55);
             ContacsGrid.MultiSelect = false;
             ContacsGrid.Name = "ContacsGrid";
             ContacsGrid.ReadOnly = true;
             ContacsGrid.RowHeadersWidth = 51;
             ContacsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ContacsGrid.Size = new Size(802, 400);
+            ContacsGrid.Size = new Size(802, 373);
             ContacsGrid.TabIndex = 2;
             // 
             // uIDDataGridViewTextBoxColumn
@@ -217,12 +222,53 @@
             descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             descriptionDataGridViewTextBoxColumn.Width = 125;
             // 
+            // toolStrip1
+            // 
+            toolStrip1.ImageScalingSize = new Size(20, 20);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStirpBtnAdd, toolStirpBtnEdit, toolStirpBtnDelete });
+            toolStrip1.Location = new Point(0, 28);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(802, 27);
+            toolStrip1.TabIndex = 3;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStirpBtnAdd
+            // 
+            toolStirpBtnAdd.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStirpBtnAdd.Image = Properties.Resources.add_16x16;
+            toolStirpBtnAdd.ImageTransparentColor = Color.Magenta;
+            toolStirpBtnAdd.Name = "toolStirpBtnAdd";
+            toolStirpBtnAdd.Size = new Size(29, 24);
+            toolStirpBtnAdd.Text = "toolStripButton1";
+            toolStirpBtnAdd.Click += toolStirpBtnAdd_Click;
+            // 
+            // toolStirpBtnEdit
+            // 
+            toolStirpBtnEdit.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStirpBtnEdit.Image = Properties.Resources.pencil_16x16;
+            toolStirpBtnEdit.ImageTransparentColor = Color.Magenta;
+            toolStirpBtnEdit.Name = "toolStirpBtnEdit";
+            toolStirpBtnEdit.Size = new Size(29, 24);
+            toolStirpBtnEdit.Text = "toolStripButton2";
+            toolStirpBtnEdit.Click += toolStirpBtnEdit_Click;
+            // 
+            // toolStirpBtnDelete
+            // 
+            toolStirpBtnDelete.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStirpBtnDelete.Image = Properties.Resources.clear_16x16;
+            toolStirpBtnDelete.ImageTransparentColor = Color.Magenta;
+            toolStirpBtnDelete.Name = "toolStirpBtnDelete";
+            toolStirpBtnDelete.Size = new Size(29, 24);
+            toolStirpBtnDelete.Text = "toolStripButton3";
+            toolStirpBtnDelete.Click += toolStirpBtnDelete_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 450);
             Controls.Add(ContacsGrid);
+            Controls.Add(toolStrip1);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -234,6 +280,8 @@
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)contactBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)ContacsGrid).EndInit();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -259,5 +307,9 @@
         private DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private ToolStrip toolStrip1;
+        private ToolStripButton toolStirpBtnAdd;
+        private ToolStripButton toolStirpBtnEdit;
+        private ToolStripButton toolStirpBtnDelete;
     }
 }

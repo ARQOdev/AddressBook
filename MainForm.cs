@@ -71,5 +71,20 @@ namespace AddressBook
             contactBindingSource.DataSource = contactList;
             ContacsGrid.Refresh();
         }
+
+        private void toolStirpBtnAdd_Click(object sender, EventArgs e)
+        {
+            MenuNew.PerformClick();
+        }
+
+        private void toolStirpBtnEdit_Click(object sender, EventArgs e)
+        {
+            MenuEdit.PerformClick();
+        }
+
+        private void toolStirpBtnDelete_Click(object sender, EventArgs e)
+        {
+            MenuDelete.PerformClick();
+        }
     }
 }

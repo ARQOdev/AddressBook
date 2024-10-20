@@ -1,11 +1,15 @@
 ﻿using AddressBook.Dialogs;
 using AddressBook.Models;
 using System.Data.SQLite;
+using System.Windows.Forms;
+using System.Linq;
 
 namespace AddressBook
 {
     public partial class MainForm : Form
     {
+        private List<Contact> ContactsList { get; set; }
+
         public MainForm()
         {
             InitializeComponent();
@@ -62,13 +66,13 @@ namespace AddressBook
             string query = "select p.*, c.CITY from Person p left join City c on p.CITY_UID = c.UID";
             List<ModelBase> list = DataHelper.ExecuteSelect(ModelBase.GetContactList, query);
 
-            List<Contact> contactList = new List<Contact>();
+            ContactsList = new List<Contact>();
             foreach (ModelBase mb in list)
             {
-                contactList.Add((Contact)mb);
+                ContactsList.Add((Contact)mb);
             }
 
-            contactBindingSource.DataSource = contactList;
+            contactBindingSource.DataSource = ContactsList;
             ContacsGrid.Refresh();
         }
 
@@ -85,6 +89,23 @@ namespace AddressBook
         private void toolStirpBtnDelete_Click(object sender, EventArgs e)
         {
             MenuDelete.PerformClick();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSearch.Text))
+            {
+                contactBindingSource.DataSource = ContactsList;
+                ContacsGrid.Refresh();
+                return;
+            }
+
+            List<Contact> filteredList = ContactsList
+                .Where(l => l.FirstName.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            contactBindingSource.DataSource = filteredList;
+            ContacsGrid.Refresh();
         }
     }
 }

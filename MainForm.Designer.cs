@@ -52,6 +52,7 @@
             toolStirpBtnAdd = new ToolStripButton();
             toolStirpBtnEdit = new ToolStripButton();
             toolStirpBtnDelete = new ToolStripButton();
+            txtSearch = new TextBox();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)contactBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ContacsGrid).BeginInit();
@@ -78,33 +79,33 @@
             // MenuNew
             // 
             MenuNew.Name = "MenuNew";
-            MenuNew.Size = new Size(224, 26);
+            MenuNew.Size = new Size(191, 26);
             MenuNew.Text = "New Contact";
             MenuNew.Click += MenuNew_Click;
             // 
             // MenuEdit
             // 
             MenuEdit.Name = "MenuEdit";
-            MenuEdit.Size = new Size(224, 26);
+            MenuEdit.Size = new Size(191, 26);
             MenuEdit.Text = "Edit Contact";
             MenuEdit.Click += MenuEdit_Click;
             // 
             // MenuDelete
             // 
             MenuDelete.Name = "MenuDelete";
-            MenuDelete.Size = new Size(224, 26);
+            MenuDelete.Size = new Size(191, 26);
             MenuDelete.Text = "Delete Contact";
             MenuDelete.Click += MenuDelete_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(221, 6);
+            toolStripSeparator1.Size = new Size(188, 6);
             // 
             // MenuExit
             // 
             MenuExit.Name = "MenuExit";
-            MenuExit.Size = new Size(224, 26);
+            MenuExit.Size = new Size(191, 26);
             MenuExit.Text = "Exit";
             MenuExit.Click += MenuExit_Click;
             // 
@@ -130,13 +131,13 @@
             ContacsGrid.Columns.AddRange(new DataGridViewColumn[] { uIDDataGridViewTextBoxColumn, cityUIDDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, mailDataGridViewTextBoxColumn, cityDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, descriptionDataGridViewTextBoxColumn });
             ContacsGrid.DataSource = contactBindingSource;
             ContacsGrid.Dock = DockStyle.Fill;
-            ContacsGrid.Location = new Point(0, 55);
+            ContacsGrid.Location = new Point(0, 82);
             ContacsGrid.MultiSelect = false;
             ContacsGrid.Name = "ContacsGrid";
             ContacsGrid.ReadOnly = true;
             ContacsGrid.RowHeadersWidth = 51;
             ContacsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ContacsGrid.Size = new Size(802, 373);
+            ContacsGrid.Size = new Size(802, 346);
             ContacsGrid.TabIndex = 2;
             // 
             // uIDDataGridViewTextBoxColumn
@@ -262,12 +263,22 @@
             toolStirpBtnDelete.Text = "toolStripButton3";
             toolStirpBtnDelete.Click += toolStirpBtnDelete_Click;
             // 
+            // txtSearch
+            // 
+            txtSearch.Dock = DockStyle.Top;
+            txtSearch.Location = new Point(0, 55);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(802, 27);
+            txtSearch.TabIndex = 4;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 450);
             Controls.Add(ContacsGrid);
+            Controls.Add(txtSearch);
             Controls.Add(toolStrip1);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
@@ -311,5 +322,6 @@
         private ToolStripButton toolStirpBtnAdd;
         private ToolStripButton toolStirpBtnEdit;
         private ToolStripButton toolStirpBtnDelete;
+        private TextBox txtSearch;
     }
 }

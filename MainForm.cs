@@ -15,6 +15,7 @@ namespace AddressBook
         {
             InitializeComponent();
             DataHelper.ConnectionString = @"Data Source=AddressBook.db;Version=3;";
+            ContactsList = new List<Contact>();
             Filters = new List<bool> { false, false, false, false, false };
         }
 
@@ -102,22 +103,17 @@ namespace AddressBook
                 return;
             }
 
-            
+
             List<Contact> filteredList = ContactsList
-                .Where(l => (l.FirstName.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[0]) || 
-                            (l.LastName.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[1]) || 
-                            (l.City.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[2]) || 
-                            (l.Address.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[3]) || 
+                .Where(l => (l.FirstName.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[0]) ||
+                            (l.LastName.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[1]) ||
+                            (l.City.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[2]) ||
+                            (l.Address.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[3]) ||
                             (l.Mail.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[4]))
                 .ToList();
 
             contactBindingSource.DataSource = filteredList;
             ContacsGrid.Refresh();
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtSearch.Clear();
         }
 
         private void saxeliToolStripMenuItem_Click(object sender, EventArgs e)
@@ -183,6 +179,16 @@ namespace AddressBook
             {
                 elfostaToolStripMenuItem.Text = "elfosta";
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+        }
+
+        private void btnFilters_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

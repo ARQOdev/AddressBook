@@ -9,11 +9,13 @@ namespace AddressBook
     public partial class MainForm : Form
     {
         private List<Contact> ContactsList { get; set; }
+        private List<bool> Filters;
 
         public MainForm()
         {
             InitializeComponent();
             DataHelper.ConnectionString = @"Data Source=AddressBook.db;Version=3;";
+            Filters = new List<bool> { false, false, false, false, false };
         }
 
         private void MenuExit_Click(object sender, EventArgs e)
@@ -100,12 +102,87 @@ namespace AddressBook
                 return;
             }
 
+            
             List<Contact> filteredList = ContactsList
-                .Where(l => l.FirstName.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase))
+                .Where(l => (l.FirstName.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[0]) || 
+                            (l.LastName.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[1]) || 
+                            (l.City.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[2]) || 
+                            (l.Address.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[3]) || 
+                            (l.Mail.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[4]))
                 .ToList();
 
             contactBindingSource.DataSource = filteredList;
             ContacsGrid.Refresh();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+        }
+
+        private void saxeliToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters[0] = !Filters[0];
+            if (saxeliToolStripMenuItem.Text == "saxeli")
+            {
+                saxeliToolStripMenuItem.Text = "SAXELI";
+            }
+            else
+            {
+                saxeliToolStripMenuItem.Text = "saxeli";
+            }
+        }
+
+        private void gvariToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters[1] = !Filters[1];
+            if (gvariToolStripMenuItem.Text == "gvari")
+            {
+                gvariToolStripMenuItem.Text = "GVARI";
+            }
+            else
+            {
+                gvariToolStripMenuItem.Text = "gvari";
+            }
+        }
+
+        private void qalaqiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters[2] = !Filters[2];
+            if (qalaqiToolStripMenuItem.Text == "qalaqi")
+            {
+                qalaqiToolStripMenuItem.Text = "QALAQI";
+            }
+            else
+            {
+                qalaqiToolStripMenuItem.Text = "qalaqi";
+            }
+        }
+
+        private void misamartiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters[3] = !Filters[3];
+            if (misamartiToolStripMenuItem.Text == "misamarti")
+            {
+                misamartiToolStripMenuItem.Text = "MISAMARTI";
+            }
+            else
+            {
+                misamartiToolStripMenuItem.Text = "misamarti";
+            }
+        }
+
+        private void elfostaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters[4] = !Filters[4];
+            if (elfostaToolStripMenuItem.Text == "elfosta")
+            {
+                elfostaToolStripMenuItem.Text = "ELFOSTA";
+            }
+            else
+            {
+                elfostaToolStripMenuItem.Text = "elfosta";
+            }
         }
     }
 }

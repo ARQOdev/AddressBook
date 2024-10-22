@@ -36,6 +36,7 @@
             MenuDelete = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             MenuExit = new ToolStripMenuItem();
+            btnClear = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             contactBindingSource = new BindingSource(components);
             ContacsGrid = new DataGridView();
@@ -53,6 +54,12 @@
             toolStirpBtnEdit = new ToolStripButton();
             toolStirpBtnDelete = new ToolStripButton();
             txtSearch = new TextBox();
+            filtrebiToolStripMenuItem = new ToolStripMenuItem();
+            saxeliToolStripMenuItem = new ToolStripMenuItem();
+            gvariToolStripMenuItem = new ToolStripMenuItem();
+            qalaqiToolStripMenuItem = new ToolStripMenuItem();
+            misamartiToolStripMenuItem = new ToolStripMenuItem();
+            elfostaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)contactBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ContacsGrid).BeginInit();
@@ -62,7 +69,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { MenuFile });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { MenuFile, btnClear, filtrebiToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(802, 28);
@@ -108,6 +115,13 @@
             MenuExit.Size = new Size(191, 26);
             MenuExit.Text = "Exit";
             MenuExit.Click += MenuExit_Click;
+            // 
+            // btnClear
+            // 
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(79, 24);
+            btnClear.Text = "btnClear";
+            btnClear.Click += btnClear_Click;
             // 
             // statusStrip1
             // 
@@ -272,6 +286,48 @@
             txtSearch.TabIndex = 4;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
+            // filtrebiToolStripMenuItem
+            // 
+            filtrebiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saxeliToolStripMenuItem, gvariToolStripMenuItem, qalaqiToolStripMenuItem, misamartiToolStripMenuItem, elfostaToolStripMenuItem });
+            filtrebiToolStripMenuItem.Name = "filtrebiToolStripMenuItem";
+            filtrebiToolStripMenuItem.Size = new Size(67, 24);
+            filtrebiToolStripMenuItem.Text = "filtrebi";
+            // 
+            // saxeliToolStripMenuItem
+            // 
+            saxeliToolStripMenuItem.Name = "saxeliToolStripMenuItem";
+            saxeliToolStripMenuItem.Size = new Size(224, 26);
+            saxeliToolStripMenuItem.Text = "saxeli";
+            saxeliToolStripMenuItem.Click += saxeliToolStripMenuItem_Click;
+            // 
+            // gvariToolStripMenuItem
+            // 
+            gvariToolStripMenuItem.Name = "gvariToolStripMenuItem";
+            gvariToolStripMenuItem.Size = new Size(224, 26);
+            gvariToolStripMenuItem.Text = "gvari";
+            gvariToolStripMenuItem.Click += gvariToolStripMenuItem_Click;
+            // 
+            // qalaqiToolStripMenuItem
+            // 
+            qalaqiToolStripMenuItem.Name = "qalaqiToolStripMenuItem";
+            qalaqiToolStripMenuItem.Size = new Size(224, 26);
+            qalaqiToolStripMenuItem.Text = "qalaqi";
+            qalaqiToolStripMenuItem.Click += qalaqiToolStripMenuItem_Click;
+            // 
+            // misamartiToolStripMenuItem
+            // 
+            misamartiToolStripMenuItem.Name = "misamartiToolStripMenuItem";
+            misamartiToolStripMenuItem.Size = new Size(224, 26);
+            misamartiToolStripMenuItem.Text = "misamarti";
+            misamartiToolStripMenuItem.Click += misamartiToolStripMenuItem_Click;
+            // 
+            // elfostaToolStripMenuItem
+            // 
+            elfostaToolStripMenuItem.Name = "elfostaToolStripMenuItem";
+            elfostaToolStripMenuItem.Size = new Size(224, 26);
+            elfostaToolStripMenuItem.Text = "elfosta";
+            elfostaToolStripMenuItem.Click += elfostaToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -323,5 +379,12 @@
         private ToolStripButton toolStirpBtnEdit;
         private ToolStripButton toolStirpBtnDelete;
         private TextBox txtSearch;
+        private ToolStripMenuItem btnClear;
+        private ToolStripMenuItem filtrebiToolStripMenuItem;
+        private ToolStripMenuItem saxeliToolStripMenuItem;
+        private ToolStripMenuItem gvariToolStripMenuItem;
+        private ToolStripMenuItem qalaqiToolStripMenuItem;
+        private ToolStripMenuItem misamartiToolStripMenuItem;
+        private ToolStripMenuItem elfostaToolStripMenuItem;
     }
 }

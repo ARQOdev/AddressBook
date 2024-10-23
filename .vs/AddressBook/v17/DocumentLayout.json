@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|c:\\anri\\projects\\address book c# app\\addressbook\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|c:\\anri\\projects\\address book c# app\\addressbook\\dialogs\\searchfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:dialogs\\searchfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|c:\\anri\\projects\\address book c# app\\addressbook\\dialogs\\searchfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:dialogs\\searchfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|c:\\anri\\projects\\address book c# app\\addressbook\\dialogs\\editcontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:dialogs\\editcontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|c:\\anri\\projects\\address book c# app\\addressbook\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A3DEFE3-5D72-4ACA-9086-7C71708138BE}|AddressBook.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 334,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,19 +34,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EditContact.cs [Design]",
-              "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Dialogs\\EditContact.cs",
-              "RelativeDocumentMoniker": "Dialogs\\EditContact.cs",
-              "ToolTip": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Dialogs\\EditContact.cs [Design]",
-              "RelativeToolTip": "Dialogs\\EditContact.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "SearchFilter.cs [Design]",
+              "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Dialogs\\SearchFilter.cs",
+              "RelativeDocumentMoniker": "Dialogs\\SearchFilter.cs",
+              "ToolTip": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Dialogs\\SearchFilter.cs [Design]",
+              "RelativeToolTip": "Dialogs\\SearchFilter.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T16:42:45.846Z",
+              "WhenOpened": "2024-10-23T15:41:21.422Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "SearchFilter.cs",
+              "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Dialogs\\SearchFilter.cs",
+              "RelativeDocumentMoniker": "Dialogs\\SearchFilter.cs",
+              "ToolTip": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\Dialogs\\SearchFilter.cs",
+              "RelativeToolTip": "Dialogs\\SearchFilter.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAABwAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T15:51:08.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
@@ -54,13 +71,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "C:\\Anri\\PROJECTS\\Address Book c# app\\AddressBook\\MainForm.cs",
               "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AQIAAFwAAAAAAAAAAAAUwBEAAAAvAAAA",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAAAH8AAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-20T11:30:44.09Z",
               "EditorCaption": ""

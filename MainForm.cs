@@ -16,7 +16,7 @@ namespace AddressBook
             InitializeComponent();
             DataHelper.ConnectionString = @"Data Source=AddressBook.db;Version=3;";
             ContactsList = new List<Contact>();
-            Filters = new List<bool> { false, false, false, false, false };
+            Filters = new List<bool> { true, false, false, false, false, false };
         }
 
         private void MenuExit_Click(object sender, EventArgs e)
@@ -109,76 +109,12 @@ namespace AddressBook
                             (l.LastName.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[1]) ||
                             (l.City.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[2]) ||
                             (l.Address.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[3]) ||
-                            (l.Mail.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[4]))
+                            (l.PhoneNumber.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[4]) ||
+                            (l.Mail.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) & Filters[5]))
                 .ToList();
 
             contactBindingSource.DataSource = filteredList;
             ContacsGrid.Refresh();
-        }
-
-        private void saxeliToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Filters[0] = !Filters[0];
-            if (saxeliToolStripMenuItem.Text == "saxeli")
-            {
-                saxeliToolStripMenuItem.Text = "SAXELI";
-            }
-            else
-            {
-                saxeliToolStripMenuItem.Text = "saxeli";
-            }
-        }
-
-        private void gvariToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Filters[1] = !Filters[1];
-            if (gvariToolStripMenuItem.Text == "gvari")
-            {
-                gvariToolStripMenuItem.Text = "GVARI";
-            }
-            else
-            {
-                gvariToolStripMenuItem.Text = "gvari";
-            }
-        }
-
-        private void qalaqiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Filters[2] = !Filters[2];
-            if (qalaqiToolStripMenuItem.Text == "qalaqi")
-            {
-                qalaqiToolStripMenuItem.Text = "QALAQI";
-            }
-            else
-            {
-                qalaqiToolStripMenuItem.Text = "qalaqi";
-            }
-        }
-
-        private void misamartiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Filters[3] = !Filters[3];
-            if (misamartiToolStripMenuItem.Text == "misamarti")
-            {
-                misamartiToolStripMenuItem.Text = "MISAMARTI";
-            }
-            else
-            {
-                misamartiToolStripMenuItem.Text = "misamarti";
-            }
-        }
-
-        private void elfostaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Filters[4] = !Filters[4];
-            if (elfostaToolStripMenuItem.Text == "elfosta")
-            {
-                elfostaToolStripMenuItem.Text = "ELFOSTA";
-            }
-            else
-            {
-                elfostaToolStripMenuItem.Text = "elfosta";
-            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -188,7 +124,17 @@ namespace AddressBook
 
         private void btnFilters_Click(object sender, EventArgs e)
         {
-            
+            SearchFilter form = new SearchFilter(Filters);
+            DialogResult result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                Filters[0] = form.FirstName;
+                Filters[1] = form.LastName;
+                Filters[2] = form.Cityname;
+                Filters[3] = form.Address;
+                Filters[4] = form.Phone;
+                Filters[5] = form.Mail;
+            }
         }
     }
 }

@@ -36,12 +36,6 @@
             MenuDelete = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             MenuExit = new ToolStripMenuItem();
-            filtrebiToolStripMenuItem = new ToolStripMenuItem();
-            saxeliToolStripMenuItem = new ToolStripMenuItem();
-            gvariToolStripMenuItem = new ToolStripMenuItem();
-            qalaqiToolStripMenuItem = new ToolStripMenuItem();
-            misamartiToolStripMenuItem = new ToolStripMenuItem();
-            elfostaToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             contactBindingSource = new BindingSource(components);
             ContacsGrid = new DataGridView();
@@ -72,7 +66,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { MenuFile, filtrebiToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { MenuFile });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(802, 28);
@@ -89,77 +83,35 @@
             // MenuNew
             // 
             MenuNew.Name = "MenuNew";
-            MenuNew.Size = new Size(191, 26);
+            MenuNew.Size = new Size(224, 26);
             MenuNew.Text = "New Contact";
             MenuNew.Click += MenuNew_Click;
             // 
             // MenuEdit
             // 
             MenuEdit.Name = "MenuEdit";
-            MenuEdit.Size = new Size(191, 26);
+            MenuEdit.Size = new Size(224, 26);
             MenuEdit.Text = "Edit Contact";
             MenuEdit.Click += MenuEdit_Click;
             // 
             // MenuDelete
             // 
             MenuDelete.Name = "MenuDelete";
-            MenuDelete.Size = new Size(191, 26);
+            MenuDelete.Size = new Size(224, 26);
             MenuDelete.Text = "Delete Contact";
             MenuDelete.Click += MenuDelete_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(188, 6);
+            toolStripSeparator1.Size = new Size(221, 6);
             // 
             // MenuExit
             // 
             MenuExit.Name = "MenuExit";
-            MenuExit.Size = new Size(191, 26);
+            MenuExit.Size = new Size(224, 26);
             MenuExit.Text = "Exit";
             MenuExit.Click += MenuExit_Click;
-            // 
-            // filtrebiToolStripMenuItem
-            // 
-            filtrebiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saxeliToolStripMenuItem, gvariToolStripMenuItem, qalaqiToolStripMenuItem, misamartiToolStripMenuItem, elfostaToolStripMenuItem });
-            filtrebiToolStripMenuItem.Name = "filtrebiToolStripMenuItem";
-            filtrebiToolStripMenuItem.Size = new Size(67, 24);
-            filtrebiToolStripMenuItem.Text = "filtrebi";
-            // 
-            // saxeliToolStripMenuItem
-            // 
-            saxeliToolStripMenuItem.Name = "saxeliToolStripMenuItem";
-            saxeliToolStripMenuItem.Size = new Size(158, 26);
-            saxeliToolStripMenuItem.Text = "saxeli";
-            saxeliToolStripMenuItem.Click += saxeliToolStripMenuItem_Click;
-            // 
-            // gvariToolStripMenuItem
-            // 
-            gvariToolStripMenuItem.Name = "gvariToolStripMenuItem";
-            gvariToolStripMenuItem.Size = new Size(158, 26);
-            gvariToolStripMenuItem.Text = "gvari";
-            gvariToolStripMenuItem.Click += gvariToolStripMenuItem_Click;
-            // 
-            // qalaqiToolStripMenuItem
-            // 
-            qalaqiToolStripMenuItem.Name = "qalaqiToolStripMenuItem";
-            qalaqiToolStripMenuItem.Size = new Size(158, 26);
-            qalaqiToolStripMenuItem.Text = "qalaqi";
-            qalaqiToolStripMenuItem.Click += qalaqiToolStripMenuItem_Click;
-            // 
-            // misamartiToolStripMenuItem
-            // 
-            misamartiToolStripMenuItem.Name = "misamartiToolStripMenuItem";
-            misamartiToolStripMenuItem.Size = new Size(158, 26);
-            misamartiToolStripMenuItem.Text = "misamarti";
-            misamartiToolStripMenuItem.Click += misamartiToolStripMenuItem_Click;
-            // 
-            // elfostaToolStripMenuItem
-            // 
-            elfostaToolStripMenuItem.Name = "elfostaToolStripMenuItem";
-            elfostaToolStripMenuItem.Size = new Size(158, 26);
-            elfostaToolStripMenuItem.Text = "elfosta";
-            elfostaToolStripMenuItem.Click += elfostaToolStripMenuItem_Click;
             // 
             // statusStrip1
             // 
@@ -408,12 +360,6 @@
         private ToolStripButton toolStirpBtnEdit;
         private ToolStripButton toolStirpBtnDelete;
         private TextBox txtSearch;
-        private ToolStripMenuItem filtrebiToolStripMenuItem;
-        private ToolStripMenuItem saxeliToolStripMenuItem;
-        private ToolStripMenuItem gvariToolStripMenuItem;
-        private ToolStripMenuItem qalaqiToolStripMenuItem;
-        private ToolStripMenuItem misamartiToolStripMenuItem;
-        private ToolStripMenuItem elfostaToolStripMenuItem;
         private Panel panel1;
         private Button btnFilters;
         private Button btnClear;

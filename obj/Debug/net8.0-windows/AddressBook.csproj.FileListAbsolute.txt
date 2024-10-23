@@ -34,3 +34,4 @@ C:\Anri\PROJECTS\Address Book c# app\AddressBook\obj\Debug\net8.0-windows\refint
 C:\Anri\PROJECTS\Address Book c# app\AddressBook\obj\Debug\net8.0-windows\AddressBook.pdb
 C:\Anri\PROJECTS\Address Book c# app\AddressBook\obj\Debug\net8.0-windows\AddressBook.genruntimeconfig.cache
 C:\Anri\PROJECTS\Address Book c# app\AddressBook\obj\Debug\net8.0-windows\ref\AddressBook.dll
+C:\Anri\PROJECTS\Address Book c# app\AddressBook\obj\Debug\net8.0-windows\AddressBook.Dialogs.SearchFilter.resources

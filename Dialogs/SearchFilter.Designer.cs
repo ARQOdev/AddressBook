@@ -135,6 +135,7 @@
             Controls.Add(chkBoxCity);
             Controls.Add(chkBoxLastName);
             Controls.Add(chkBoxFirstName);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "SearchFilter";

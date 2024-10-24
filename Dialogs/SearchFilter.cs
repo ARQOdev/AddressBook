@@ -12,7 +12,6 @@ namespace AddressBook.Dialogs
 {
     public partial class SearchFilter : Form
     {
-
         public bool FirstName { get; private set; }
         public bool LastName { get; private set; }
         public bool Cityname { get; private set; }
